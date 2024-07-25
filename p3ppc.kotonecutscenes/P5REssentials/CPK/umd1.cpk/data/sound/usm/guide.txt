@@ -1,0 +1,93 @@
+50: prelude full
+	e100_301
+	e100_302
+	e101_301
+51: prelude 1-1 (unused!)
+	e100_301
+52: prelude 1-2 (unused!)
+	e100_302
+	e101_301
+53: iwatodai dorm
+	e103_301
+54: gekkoukan arrival
+	e108_301
+55: man in the back alley part 1*
+	e114_301
+56: man in the back alley part 2*
+	e114_302
+57: door to the velvet room + entering the velvet room for the first time`
+	e106_302
+58: awakening
+	e124_301
+	e124_303
+59: door to the velvet room`*
+	e126_301
+60: tartarus
+	e136_301
+61: fuuka awakens her persona`
+	e184_301
+62: shower room scene Akihiko`
+	e200_301
+63: kirijo group backstory`
+	e204_301
+64: yakushima arrival`
+	e214_301
+65: aigis reveal*
+	e221_301
+66: october 4th`
+	e271_301
+67: picture with SEES on 11/4`
+	e288_302
+68: SEES crucified`
+	e291_301
+69: takeharu and ikutsuki die`
+	e291_301
+70: kyoto arrival* (makoto isn't seen in this cutscene afaik)
+	e299_301
+71: kyoto day 2`
+	e300_301
+72: kyoto day 3*
+	e302_301
+73: aigis confronts ryoji`
+	e310_302
+74: nyx appears`
+	e330_301
+75: nyx rises up to the moon; people are detransmogrified`
+	e331_302
+76: nyx crushes everyone`
+	e331_305
+77: kotone ascends to defeat nyx - theodore ver.`
+	
+78: kotone returns; the dark hour disappears`
+	
+79: SEES regains their memories`*
+	
+80: Aigis: "I will always be by your side"`*
+	
+81: credits`
+	
+82: credits aftermath (aigis - shinji alive)`
+
+83: credits aftermath (aigis - shinji dead)`
+	
+84: introduction cutscene*
+	e102_301
+85: shower room scene Junpei`
+	e200_301
+86: kotone ascends to defeat nyx - elizabeth ver.`
+
+87: credits aftermath (anyone else - NG+)`
+	
+88: credits (bad ending)`
+
+* = reused from male route (no changes needed)
+` = femc usm not implemented yet
+`* = femc usm not implemented yet. unclear if it's needed or not
+
+TO DO:
+	E338_303
+		ADD CHECKS FOR AIGIS (SHINJI ALIVE), AIGIS (SHINJI DEAD), NG+
+		ADD BGME DEPENDENCY (probably use Ryo)
+		
+		42: Memories of You
+		79: Mistic

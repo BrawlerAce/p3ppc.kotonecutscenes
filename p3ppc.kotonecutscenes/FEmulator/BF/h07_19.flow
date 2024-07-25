@@ -1,0 +1,111 @@
+// Procedure Index: 15
+void myroom_mybed_hook()
+{
+    
+    if ( GET_DAY( 4, 6 ) )
+    {
+        MSG_WND_DSP();
+        MSG( FIRST_DAY );
+        SEL_DEFKEY( 14, 1 );
+        
+        if ( SEL( BEDIN_SEL ) == 0 )
+        {
+            MSG_WND_CLS();
+            FADE( 1, 30 );
+            NEXT_TIME();
+        }
+
+    }
+    else if ( GET_DAY( 4, 9 ) )
+    {
+        MSG_WND_DSP();
+        MSG( FIRST_DAY );
+        SEL_DEFKEY( 14, 1 );
+        
+        if ( SEL( BEDIN_SEL ) == 1 )
+        {
+            MSG_WND_CLS();
+            return;
+        }
+
+        MSG_WND_CLS();
+        BGM_STOP( 30 );
+        FADE( 1, 30 );
+        CALL_DARK_HOUR();
+        FCL_FUNCTION_0017();
+        CALL_EVENT( 119, 1 );
+        CALL_EVENT( 120, 1 );
+        CALL_EVENT( 121, 1 );
+        CALL_EVENT( 122, 1 );
+        BIT_ON( 4887 );
+        CALL_EVENT( 123, 1 );
+        CALL_EVENT( 124, 1 );
+        CALL_EVENT( 124, 3 );
+        FUNCTION_001E( 4, 0 );
+        FUNCTION_004B();
+        FUNCTION_004C();
+        CALL_BATTLE( 456 );
+        WAIT_BATTLE();
+        CALL_EVENT( 125, 1 );
+        CALL_EVENT( 126, 1 );
+        BIT_ON( 11 );
+        BIT_ON( 12 );
+        BIT_ON( 13 );
+        BIT_ON( 14 );
+        BIT_ON( 15 );
+        BIT_ON( 0x10 );
+        BIT_ON( 288 );
+        BIT_ON( 289 );
+        BIT_ON( 290 );
+        BIT_ON( 17 );
+        BIT_ON( 18 );
+        FCL_FUNCTION_0018();
+        FUNCTION_0036( 4, 19, 3 );
+        NEXT_TIME();
+        return;
+    }
+    else if ( FUNCTION_0033() == 5 )
+    {
+        MSG_WND_DSP();
+        MSG( NIGHT_BED );
+        SEL_DEFKEY( 14, 1 );
+        
+        if ( SEL( YESNO_SEL_2 ) == 0 )
+        {
+            MSG_WND_CLS();
+            BGM_STOP( 30 );
+            FADE( 1, 30 );
+            FUNCTION_000F();
+            
+            if ( CHECK_TIREDNESS( PartyMember.Protagonist ) >= 3 )
+            {
+                BIT_ON( 2718 );
+            }
+            else 
+            {
+                BIT_ON( 2682 );
+            }
+
+            
+            if ( BIT_CHK( 3214 ) )
+            {
+                BIT_OFF( 3214 );
+                midnight_event();
+            }
+
+            
+            if ( GET_DAY( 11, 22 ) == 0 )
+            {
+                NEXT_TIME();
+            }
+
+        }
+
+        MSG_WND_CLS();
+    }
+    else 
+    {
+        FUNCTION_001A( FUNCTION_0018( 36, 0 ) );
+    }
+
+}

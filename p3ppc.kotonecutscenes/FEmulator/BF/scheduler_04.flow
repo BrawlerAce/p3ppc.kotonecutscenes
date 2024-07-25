@@ -1,0 +1,34 @@
+// Procedure Index: 78
+void sdl04_06_PM_D_hook()
+{
+    BIT_ON( 4105 );
+    CALL_SEX_SELECT();
+    FCL_FUNCTION_0019();
+    BIT_ON( 255 );
+    BIT_OFF( 4105 );
+    BIT_ON( 5149 );
+    BIT_ON( 369 );
+    CALL_EVENT( 102, 1 );
+    CALL_EVENT( 100, 1 );
+    FCL_FUNCTION_0017();
+    BIT_OFF( 5149 );
+    BIT_ON( 4105 );
+    CALL_NAME_ENTRY();
+    BIT_OFF( 4105 );
+    CALL_EVENT( 103, 1 );
+    CALL_EVENT( 104, 1 );
+    CALL_EVENT( 105, 1 );
+    ADD_PC_MONEY( 3000 );
+    BIT_ON( 1 );
+    BIT_ON( 2 );
+    
+    if ( BIT_CHK( 4104 ) )
+    {
+        CALL_FIELD( 7, 19, 0, 0 );
+    }
+    else 
+    {
+        CALL_FIELD( 7, 20, 0, 0 );
+    }
+
+}

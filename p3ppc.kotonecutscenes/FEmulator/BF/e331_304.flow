@@ -1,0 +1,33 @@
+void SCR_e331_304_hook()
+{
+    EVT_FUNCTION_0002();
+    FADE( 1, 0 );
+    BGM_STOP( 0 );
+    CALL_BG_IMG( 0x20, 3, 3, 4 );
+    EVT_FUNCTION_0035( 0, 31 );
+    EVT_FUNCTION_0036( 0, 1 );
+    EVT_FUNCTION_004E( 0, 1, 0, 1, 0, 0, 0 );
+    WAIT( 5 );
+    BGM( 109 );
+    FUNCTION_000D( 10 );
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_000 );
+    MSG_WND_CLS();
+    WAIT( 20 );
+    FUNCTION_003C( 174 );
+    EVT_FUNCTION_0039( 2, 0 );
+    EVT_FUNCTION_004E( 0, 2, 10, 0, 0, 0, 0 );
+    WAIT( 450 );
+    FADE( 1, 20 );
+    CALL_BG_IMG( 0x20, 3, 3, 1 );
+    EVT_FUNCTION_004E( 0, 3, 0, 0, 4, 10, 1 );
+    FUNCTION_000D( 20 );
+    WAIT( 120 );
+    MSG_WND_DSP();
+    MSG( MSG_001 );
+    MSG_WND_CLS();
+    WAIT( 20 );
+    FADE( 1, 20 );
+}
+
