@@ -27,7 +27,7 @@ namespace p3ppc.kotonecutscenes.Configuration
         */
         
         [DisplayName("Good Ending Theme")]
-        [Description("Select music to play during the good ending.\n\nOriginal: Memories of You\nReload: Memories of You -Reload-\nReloadInstrumental: Memories of You -Reload Instrumental-\nMovie: Memories of You (Remix) from Persona 3 Movie 4\nOrchestra: Memories of You ~Orchestra ver.~ from Burn My Dread -Reincarnation Persona 3-")]
+        [Description("Select music to play during the good ending.\n\nOriginal: Memories of You\nReload: Memories of You -Reload-\nReloadInstrumental: Memories of You -Reload Instrumental-\nMovie: Memories of You (Remix) (Persona 3 the Movie)\nOrchestra: Memories of You ~Orchestra ver.~")]
         [DefaultValue(GoodEnding.Original)]
         public GoodEnding GoodEndingMusic { get; set; } = GoodEnding.Original;
 
@@ -37,11 +37,11 @@ namespace p3ppc.kotonecutscenes.Configuration
             Reload,
             ReloadInstrumental,
             Movie,
-            Orchestra
+            Orchestral
         }
 
         [DisplayName("Bad Ending Theme")]
-        [Description("Select music to play during the bad ending.\n\nOriginal: Plays the same Memories of You version as in the good ending.\nReload: Mistic -Reload-\nMistic: Mistic")]
+        [Description("Select music to play during the bad ending.\n\nOriginal: Plays the same Memories of You version as in the good ending.\nReload: Mistic -Reload-\nMistic: Mistic (original)")]
         [DefaultValue(BadEnding.Original)]
         public BadEnding BadEndingMusic { get; set; } = BadEnding.Original;
 

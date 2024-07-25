@@ -2,6 +2,9 @@
 using p3ppc.kotonecutscenes.Template;
 using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
+using BGME.Framework.Interfaces;
+using CriFs.V2.Hook;
+using CriFs.V2.Hook.Interfaces;
 
 namespace p3ppc.kotonecutscenes
 {
@@ -58,6 +61,62 @@ namespace p3ppc.kotonecutscenes
             // and some other neat features, override the methods in ModBase.
 
             // TODO: Implement some mod logic
+
+            var criFsController = _modLoader.GetController<ICriFsRedirectorApi>();
+            if (criFsController == null || !criFsController.TryGetTarget(out var criFsApi))
+            {
+                _logger.WriteLine($"criFsController returned as null! p3ppc.kotonecutscenes may not work properly!", System.Drawing.Color.Red);
+                return;
+            }
+
+            var BGMEController = _modLoader.GetController<IBgmeApi>().TryGetTarget(out var bgmeApi);
+
+            var modDir = _modLoader.GetDirectoryForModId(_modConfig.ModId);
+
+
+            // Good Ending Music
+
+            if (_configuration.GoodEndingMusic == Config.GoodEnding.Original)
+            {
+                bgmeApi.AddFolder(Path.Combine(modDir, "MusicConfig", "GoodEnding", "Original"));
+            }
+
+            if (_configuration.GoodEndingMusic == Config.GoodEnding.Orchestral)
+            {
+                bgmeApi.AddFolder(Path.Combine(modDir, "MusicConfig", "GoodEnding", "Orchestral"));
+            }
+
+            if (_configuration.GoodEndingMusic == Config.GoodEnding.Reload)
+            {
+                bgmeApi.AddFolder(Path.Combine(modDir, "MusicConfig", "GoodEnding", "Reload"));
+            }
+
+            if (_configuration.GoodEndingMusic == Config.GoodEnding.ReloadInstrumental)
+            {
+                bgmeApi.AddFolder(Path.Combine(modDir, "MusicConfig", "GoodEnding", "ReloadInstrumental"));
+            }
+
+            if (_configuration.GoodEndingMusic == Config.GoodEnding.Movie)
+            {
+                bgmeApi.AddFolder(Path.Combine(modDir, "MusicConfig", "GoodEnding", "Movie"));
+            }
+
+            // Bad Ending Music
+
+            if (_configuration.BadEndingMusic == Config.BadEnding.Original)
+            {
+                criFsApi.AddProbingPath(Path.Combine(modDir, "MusicConfig", "BadEnding", "Original"));
+            }
+
+            if (_configuration.BadEndingMusic == Config.BadEnding.Reload)
+            {
+                criFsApi.AddProbingPath(Path.Combine(modDir, "MusicConfig", "BadEnding", "Reload"));
+            }
+
+            if (_configuration.BadEndingMusic == Config.BadEnding.Mistic)
+            {
+                criFsApi.AddProbingPath(Path.Combine(modDir, "MusicConfig", "BadEnding", "Mistic"));
+            }
         }
 
         #region Standard Overrides
