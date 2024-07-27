@@ -15,8 +15,8 @@
     "FMV",
     "Scripts"
   ],
-  "CanUnload": null,
-  "HasExports": null,
+  "CanUnload": false,
+  "HasExports": false,
   "IsLibrary": false,
   "ReleaseMetadataFileName": "p3ppc.kotonecutscenes.ReleaseMetadata.json",
   "PluginData": {
@@ -127,8 +127,11 @@
   "IsUniversalMod": false,
   "ModDependencies": [
     "BGME.Framework",
+    "BGME.Framework.API",
+    "crifs.v2.hook",
     "p3ppc.moviePlayer",
-    "p5rpc.modloader"
+    "p5rpc.modloader",
+    "reloaded.universal.fileemulationframework.bf"
   ],
   "OptionalDependencies": [],
   "SupportedAppId": [

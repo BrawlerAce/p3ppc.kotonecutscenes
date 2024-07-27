@@ -1,0 +1,23 @@
+import("e102_301.msg");
+
+void SCR_e102_301_hook()
+{
+    EVT_FUNCTION_0003();
+    EVT_FUNCTION_003B( 0, 21 );
+    EVT_FUNCTION_0035( 0, 36 );
+    BGM_STOP( 0 );
+    FUNCTION_000D( 30 );
+    EVT_FUNCTION_0003();
+    EVT_FUNCTION_003C( 0, 21 );
+    EVT_FUNCTION_0036( 0, 1 );
+    FUNCTION_000D( 15 );
+    EVT_FUNCTION_003E( 0 );
+    EVT_FUNCTION_0037( 0 );
+    FUNCTION_000D( 30 );
+    EVT_FUNCTION_0001();
+    WAIT( 20 );
+    FADE( 1, 20 );
+    BGM_STOP( 0 );
+    CUSTOM_MOVIE_PLAY( 84 );
+}
+

@@ -62,6 +62,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\source\repos\BGME\BGME.Framework.Interfaces\BGME.Framework.Interfaces.csproj" />
     <ProjectReference Include="..\..\p3ppc.qolcollection\Interfaces\CriFs.V2.Hook.ReloadedII\Interfaces\CriFs.V2.Hook.Interfaces\CriFs.V2.Hook.Interfaces.csproj" />
+    <ProjectReference Include="..\Interfaces\FileEmulationFramework\Emulator\Interfaces\BF.File.Emulator.Interfaces\BF.File.Emulator.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

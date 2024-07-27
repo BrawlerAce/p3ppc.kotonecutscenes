@@ -1,0 +1,5 @@
+void SCR_e336_302_hook()
+{
+    CUSTOM_MOVIE_PLAY( 78 );
+}
+

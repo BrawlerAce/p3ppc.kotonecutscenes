@@ -1,0 +1,36 @@
+void SCR_e126_301_hook()
+{
+    BGM_STOP( 0 );
+    WAIT( 20 );
+    FADE( 1, 20 );
+    CUSTOM_MOVIE_PLAY( 59 );
+    EVT_FUNCTION_0002();
+    FADE( 1, 0 );
+    CALL_BG_IMG( 8, 12, 0, 1 );
+    WAIT( 100 );
+    BGM( 54 );
+    FUNCTION_000D( 50 );
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_008 );
+    MSG_WND_CLS();
+    WAIT( 20 );
+    MSG_WND_DSP();
+    MSG( MSG_000 );
+    SEL( SEL_001 );
+    MSG( MSG_002 );
+    SEL( SEL_003 );
+    MSG( MSG_004 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_005 );
+    MSG( MSG_006 );
+    MSG_WND_CLS();
+    FADE( 1, 50 );
+    WAIT( 20 );
+    BGM_STOP( 0 );
+    EVT_FUNCTION_0001();
+    BGM_STOP( 0 );
+}
+

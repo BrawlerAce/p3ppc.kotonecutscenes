@@ -1,0 +1,6 @@
+void SCR_e108_301_hook()
+{
+    BGM_STOP( 0 );
+    CUSTOM_MOVIE_PLAY( 54 );
+}
+

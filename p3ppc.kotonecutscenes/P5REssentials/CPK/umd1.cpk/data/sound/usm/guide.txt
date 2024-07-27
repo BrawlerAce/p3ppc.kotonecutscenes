@@ -11,10 +11,10 @@
 	e103_301
 54: gekkoukan arrival
 	e108_301
-55: man in the back alley part 1*
+55: man in the back alley
 	e114_301
-56: man in the back alley part 2*
-	e114_302
+56: october 4th (shinji lives)`
+	e271_301
 57: door to the velvet room + entering the velvet room for the first time`
 	e106_302
 58: awakening

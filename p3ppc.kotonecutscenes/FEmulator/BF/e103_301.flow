@@ -1,0 +1,7 @@
+void SCR_e103_301_hook()
+{
+    BGM_STOP( 0 );
+    CUSTOM_MOVIE_PLAY( 53 );
+    FCL_FUNCTION_0018();
+}
+

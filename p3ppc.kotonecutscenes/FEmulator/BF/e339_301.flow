@@ -1,0 +1,88 @@
+void SCR_e339_301_hook()
+{
+    int var0;
+    EVT_FUNCTION_0002();
+    FADE( 1, 0 );
+    CALL_BG_IMG( 6, 21, 0, 1 );
+    FUNCTION_000D( 10 );
+    BGM_STOP( 0 );
+    WAIT( 10 );
+    MSG_WND_DSP();
+    MSG( MSG_000 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_001 );
+    MSG_WND_CLS();
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_002 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_003 );
+    MSG_WND_CLS();
+    WAIT( 10 );
+    BGM( 79 );
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_004 );
+    MSG_WND_CLS();
+    FUNCTION_0024( 26 );
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_005 );
+    MSG( MSG_006 );
+    SEL( SEL_007 );
+    MSG( MSG_008 );
+    MSG( MSG_009 );
+    MSG( MSG_010 );
+    MSG( MSG_011 );
+    MSG( MSG_012 );
+    MSG( MSG_013 );
+    MSG( MSG_014 );
+    var0 = SEL( SEL_015 );
+    
+    if ( var0 == 0 )
+    {
+        MSG( MSG_016 );
+    }
+    else 
+    {
+        MSG( MSG_017 );
+    }
+
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_018 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_026 );
+    MSG( MSG_027 );
+    MSG_WND_CLS();
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_028 );
+    MSG( MSG_029 );
+    MSG( MSG_030 );
+    MSG( MSG_031 );
+    MSG( MSG_032 );
+    MSG( MSG_033 );
+    MSG( MSG_034 );
+    MSG( MSG_035 );
+    MSG( MSG_036 );
+    MSG( MSG_041 );
+    MSG( MSG_042 );
+    MSG_WND_CLS();
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_043 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    FADE( 1, 30 );
+    EVT_FUNCTION_0001();
+    BGM_STOP( 0 );
+}
+

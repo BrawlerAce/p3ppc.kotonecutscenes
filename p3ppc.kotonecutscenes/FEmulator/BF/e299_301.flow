@@ -1,0 +1,14 @@
+void SCR_e299_301_hook()
+{
+    EVT_FUNCTION_0002();
+    WAIT( 20 );
+    FADE( 1, 20 );
+    BGM_STOP( 0 );
+    CUSTOM_MOVIE_PLAY( 70 );
+    WAIT( 20 );
+    FADE( 1, 20 );
+    FUNCTION_0025( 20 );
+    EVT_FUNCTION_0001();
+    BGM_STOP( 0 );
+}
+

@@ -1,0 +1,16 @@
+void SCR_e300_301_hook()
+{
+    EVT_FUNCTION_0002();
+    FADE( 1, 0 );
+    EVT_FUNCTION_0003();
+    BGM_STOP( 0 );
+    MSG_WND_DSP();
+    MSG( MSG_000 );
+    MSG_WND_CLS();
+    WAIT( 20 );
+    FADE( 1, 20 );
+    BGM_STOP( 0 );
+    CUSTOM_MOVIE_PLAY( 71 );
+    WAIT( 10 );
+}
+

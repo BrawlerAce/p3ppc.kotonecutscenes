@@ -1,0 +1,4 @@
+void SCR_e100_301_hook()
+{
+    CUSTOM_MOVIE_PLAY( 50 );
+}

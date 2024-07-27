@@ -1,0 +1,135 @@
+void SCR_e271_301_hook()
+{
+    EVT_FUNCTION_0002();
+    FADE( 2, 0 );
+    CALL_BG_IMG( 10, 2, 3, 3 );
+    BGM_STOP( 0 );
+    FUNCTION_000D( 15 );
+    EVT_FUNCTION_0059( 1 );
+    WAIT( 20 );
+    MSG_WND_DSP();
+    MSG( MSG_000 );
+    MSG( MSG_001 );
+    MSG( MSG_002 );
+    MSG( MSG_003 );
+    MSG( MSG_004 );
+    MSG( MSG_005 );
+    MSG( MSG_006 );
+    MSG( MSG_007 );
+    MSG( MSG_008 );
+    MSG_WND_CLS();
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_009 );
+    MSG( MSG_083 );
+    MSG_WND_CLS();
+    BGM( 36 );
+    WAIT( 15 );
+    FUNCTION_0024( 275 );
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_010 );
+    MSG( MSG_011 );
+    MSG( MSG_012 );
+    MSG( MSG_013 );
+    MSG( MSG_014 );
+    MSG_WND_CLS();
+    FUNCTION_0024( 10 );
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_015 );
+    MSG( MSG_016 );
+    MSG( MSG_017 );
+    MSG( MSG_018 );
+    MSG( MSG_019 );
+    MSG( MSG_020 );
+    MSG( MSG_021 );
+    MSG( MSG_022 );
+    MSG( MSG_084 );
+    MSG( MSG_023 );
+    MSG( MSG_024 );
+    MSG( MSG_025 );
+    MSG( MSG_026 );
+    FUNCTION_0024( 10 );
+    WAIT( 15 );
+    MSG( MSG_027 );
+    BGM_STOP( 10 );
+    MSG( MSG_028 );
+    MSG_WND_CLS();
+    WAIT( 10 );
+    FUNCTION_003C( 59 );
+    EVT_FUNCTION_0039( 1, 9 );
+    WAIT( 70 );
+    MSG_WND_DSP();
+    MSG( MSG_029 );
+    MSG_WND_CLS();
+    WAIT( 20 );
+    FUNCTION_0024( 20 );
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_030 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_031 );
+    FUNCTION_003C( 88 );
+    EVT_FUNCTION_0039( 0, 10 );
+    WAIT( 30 );
+    MSG( MSG_032 );
+    MSG( MSG_033 );
+    MSG_WND_CLS();
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_034 );
+    MSG( MSG_035 );
+    MSG( MSG_085 );
+    MSG( MSG_036 );
+    MSG( MSG_037 );
+    MSG( MSG_038 );
+    MSG( MSG_039 );
+    FUNCTION_003C( 88 );
+    EVT_FUNCTION_0039( 0, 10 );
+    WAIT( 30 );
+    MSG( MSG_040 );
+    MSG( MSG_041 );
+    MSG( MSG_042 );
+    MSG( MSG_043 );
+    FUNCTION_0024( 10 );
+    MSG( MSG_044 );
+    MSG_WND_CLS();
+    FADE( 1, 30 );
+    BGM_STOP( 20 );
+    WAIT( 30 );
+    
+    if ( CMM_GET_LV( 27 ) < 10 )
+    {
+		CUSTOM_MOVIE_PLAY( 66 );
+		WAIT( 20 );
+        MSG_WND_DSP();
+        MSG( MSG_076 );
+        MSG_WND_CLS();
+    }
+    else 
+    {
+		CUSTOM_MOVIE_PLAY( 56 );
+		WAIT( 20 );
+		FADE( 1, 10 );
+		CALL_BG_IMG( 10, 2, 3, 3 );
+		WAIT( 20 );
+		FUNCTION_000D( 10 );
+        MSG_WND_DSP();
+        MSG( MSG_077 );
+        MSG( MSG_078 );
+        MSG( MSG_079 );
+        MSG_WND_CLS();
+        FADE( 1, 30 );
+        BGM_STOP( 30 );
+        WAIT( 50 );
+        MSG_WND_DSP();
+        MSG( MSG_081 );
+        MSG_WND_CLS();
+    }
+
+    EVT_FUNCTION_0001();
+}
+

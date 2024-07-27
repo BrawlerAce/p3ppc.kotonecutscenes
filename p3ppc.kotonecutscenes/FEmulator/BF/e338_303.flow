@@ -1,0 +1,254 @@
+void SCR_e338_303_hook()
+{
+    int var0;
+    int var1;
+    int var2;
+    EVT_FUNCTION_0002();
+    FADE( 1, 0 );
+    CALL_BG_IMG( 6, 5, 0, 2 );
+    WAIT( 60 );
+    FUNCTION_000D( 20 );
+    BGM( 88 );
+    WAIT( 10 );
+    MSG_WND_DSP();
+    MSG( MSG_000 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_001 );
+    MSG( MSG_002 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_003 );
+    MSG_WND_CLS();
+    WAIT( 20 );
+    MSG_WND_DSP();
+    MSG( MSG_004 );
+    MSG( MSG_005 );
+    MSG_WND_CLS();
+    WAIT( 20 );
+    MSG_WND_DSP();
+    MSG( MSG_006 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_007 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_008 );
+    var0 = SEL( SEL_009 );
+    
+    if ( var0 == 0 )
+    {
+        MSG( MSG_010 );
+    }
+    else 
+    {
+        MSG( MSG_010 );
+    }
+
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_011 );
+    MSG( MSG_012 );
+    MSG( MSG_013 );
+    MSG( MSG_014 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_015 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_016 );
+    MSG_WND_CLS();
+    WAIT( 20 );
+    MSG_WND_DSP();
+    MSG( MSG_017 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    
+    if ( BIT_CHK( 4880 ) )
+    {
+        
+        if ( ( ( CMM_GET_LV( 0x10 ) == 10 ) || ( CMM_GET_LV( 23 ) == 10 ) ) || ( BIT_CHK( 2098 ) && BIT_CHK( 2106 ) ) )
+        {
+            MSG_WND_DSP();
+            MSG( MSG_018 );
+            var1 = 0;
+            
+            if ( CMM_GET_LV( 23 ) != 10 )
+            {
+                var1 = ( var1 + 1 );
+            }
+
+            
+            if ( !BIT_CHK( 2098 ) || !BIT_CHK( 2106 ) )
+            {
+                var1 = ( var1 + 2 );
+            }
+
+            
+            if ( CMM_GET_LV( 0x10 ) != 10 )
+            {
+                var1 = ( var1 + 4 );
+            }
+
+            FUNCTION_0006( var1 );
+            var0 = SEL( SEL_019 );
+            
+            if ( var0 == 0 )
+            {
+                var2 = 28;
+                BIT_ON( 373 );
+            }
+            else if ( var0 == 1 )
+            {
+                var2 = 36;
+                BIT_ON( 374 );
+            }
+            else if ( var0 == 2 )
+            {
+                var2 = 49;
+                BIT_ON( 375 );
+            }
+            else 
+            {
+                goto AEGIS_END_1;
+            }
+
+            MSG_WND_CLS();
+            WAIT( 10 );
+            MSG_WND_DSP();
+            MSG( var2 );
+            MSG_WND_CLS();
+            FUNCTION_0024( 81 );
+            FUNCTION_0024( 277 );
+            MSG_WND_DSP();
+            MSG( ( var2 + 1 ) );
+            MSG_WND_CLS();
+            WAIT( 15 );
+            MSG_WND_DSP();
+            MSG( ( var2 + 2 ) );
+            MSG_WND_CLS();
+            WAIT( 15 );
+            MSG_WND_DSP();
+            MSG( ( var2 + 3 ) );
+            MSG_WND_CLS();
+            WAIT( 15 );
+            MSG_WND_DSP();
+            MSG( ( var2 + 4 ) );
+            MSG_WND_CLS();
+            WAIT( 40 );
+            MSG_WND_DSP();
+            MSG( ( var2 + 5 ) );
+            MSG_WND_CLS();
+            WAIT( 40 );
+            MSG_WND_DSP();
+            MSG( ( var2 + 6 ) );
+            SEL( ( var2 + 7 ) );
+            MSG_WND_CLS();
+            WAIT( 60 );
+            FUNCTION_0010( 1, 60, 255, 255, 255 );
+            WAIT( 30 );
+            BGM_STOP( 60 );
+            WAIT( 30 );
+            
+            if ( 1 )
+            {
+                
+                if ( BIT_CHK( 373 ) )
+                {
+                    FUNCTION_003C( 335 );
+                    MSG_WND_DSP();
+                    MSG( MSG_073 );
+                    MSG_WND_CLS();
+                }
+                else if ( BIT_CHK( 374 ) )
+                {
+                    FUNCTION_003C( 337 );
+                    MSG_WND_DSP();
+                    MSG( MSG_074 );
+                    MSG_WND_CLS();
+                }
+                else if ( BIT_CHK( 375 ) )
+                {
+                    FUNCTION_003C( 336 );
+                    MSG_WND_DSP();
+                    MSG( MSG_075 );
+                    MSG_WND_CLS();
+                }
+
+            }
+            else if ( BIT_CHK( 373 ) )
+            {
+                FUNCTION_0024( 335 );
+            }
+            else if ( BIT_CHK( 374 ) )
+            {
+                FUNCTION_0024( 337 );
+            }
+            else if ( BIT_CHK( 375 ) )
+            {
+                FUNCTION_0024( 336 );
+            }
+
+            EVT_FUNCTION_0001();
+            BGM_STOP( 0 );
+            WAIT( 60 );
+			BGM( 42 );
+			CUSTOM_MOVIE_PLAY( 81 );
+			CUSTOM_MOVIE_PLAY( 87 );
+			BGM_STOP( 0 );
+            return;
+        }
+
+    }
+
+    AEGIS_END_1:
+    MSG_WND_CLS();
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_044 );
+    MSG_WND_CLS();
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_045 );
+    MSG_WND_CLS();
+    WAIT( 40 );
+    MSG_WND_DSP();
+    MSG( MSG_046 );
+    MSG_WND_CLS();
+    WAIT( 40 );
+    MSG_WND_DSP();
+    MSG( MSG_047 );
+    SEL( SEL_048 );
+    MSG_WND_CLS();
+    WAIT( 60 );
+    FUNCTION_0010( 1, 60, 255, 255, 255 );
+    WAIT( 30 );
+    BGM_STOP( 60 );
+    WAIT( 30 );
+    FADE( 1, 20 );
+    BGM_STOP( 0 );
+    CUSTOM_MOVIE_PLAY( 80 );
+    WAIT( 10 );
+	
+	if ( BIT_CHK( 2098 ) && BIT_CHK( 2106 ) )
+	{
+		BGM( 42 );
+		CUSTOM_MOVIE_PLAY( 81 );
+		CUSTOM_MOVIE_PLAY( 82 );
+	}
+	else
+	{
+		BGM( 42 );
+		CUSTOM_MOVIE_PLAY( 81 );
+		CUSTOM_MOVIE_PLAY( 83 );
+	}
+    BGM_STOP( 0 );
+}
+

@@ -5,6 +5,8 @@ using Reloaded.Mod.Interfaces;
 using BGME.Framework.Interfaces;
 using CriFs.V2.Hook;
 using CriFs.V2.Hook.Interfaces;
+using BF.File.Emulator;
+using BF.File.Emulator.Interfaces;
 
 namespace p3ppc.kotonecutscenes
 {
@@ -69,6 +71,13 @@ namespace p3ppc.kotonecutscenes
                 return;
             }
 
+            var BfEmulatorController = _modLoader.GetController<IBfEmulator>();
+            if (BfEmulatorController == null || !BfEmulatorController.TryGetTarget(out var _BfEmulator))
+            {
+                _logger.WriteLine($"BfEmulatorController returned as null! p3ppc.kotonecutscenes may not work properly!", System.Drawing.Color.Red);
+                return;
+            }
+
             var BGMEController = _modLoader.GetController<IBgmeApi>().TryGetTarget(out var bgmeApi);
 
             var modDir = _modLoader.GetDirectoryForModId(_modConfig.ModId);
@@ -103,19 +112,34 @@ namespace p3ppc.kotonecutscenes
 
             // Bad Ending Music
 
+            //if (_configuration.BadEndingMusic == Config.BadEnding.Original)
+            //{
+            //    criFsApi.AddProbingPath(Path.Combine(modDir, "MusicConfig", "BadEnding", "Original"));
+            //}
+
+            //if (_configuration.BadEndingMusic == Config.BadEnding.Reload)
+            //{
+            //    criFsApi.AddProbingPath(Path.Combine(modDir, "MusicConfig", "BadEnding", "Reload"));
+            //}
+
+            //if (_configuration.BadEndingMusic == Config.BadEnding.Mistic)
+            //{
+            //    criFsApi.AddProbingPath(Path.Combine(modDir, "MusicConfig", "BadEnding", "Mistic"));
+            //}
+
             if (_configuration.BadEndingMusic == Config.BadEnding.Original)
             {
-                criFsApi.AddProbingPath(Path.Combine(modDir, "MusicConfig", "BadEnding", "Original"));
+                _BfEmulator.AddDirectory(Path.Combine(modDir, "MusicConfig", "BadEnding", "Original"));
             }
 
             if (_configuration.BadEndingMusic == Config.BadEnding.Reload)
             {
-                criFsApi.AddProbingPath(Path.Combine(modDir, "MusicConfig", "BadEnding", "Reload"));
+                _BfEmulator.AddDirectory(Path.Combine(modDir, "MusicConfig", "BadEnding", "Reload"));
             }
 
             if (_configuration.BadEndingMusic == Config.BadEnding.Mistic)
             {
-                criFsApi.AddProbingPath(Path.Combine(modDir, "MusicConfig", "BadEnding", "Mistic"));
+                _BfEmulator.AddDirectory(Path.Combine(modDir, "MusicConfig", "BadEnding", "Mistic"));
             }
         }
 

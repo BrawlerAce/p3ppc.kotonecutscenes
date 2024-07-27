@@ -1,0 +1,57 @@
+void SCR_e338_302_hook()
+{
+    EVT_FUNCTION_0002();
+    FADE( 3, 0 );
+    BGM_STOP( 0 );
+    CALL_BG_IMG( 6, 21, 0, 1 );
+    FUNCTION_000D( 15 );
+    BGM( 37 );
+    EVT_FUNCTION_0059( 1 );
+    WAIT( 20 );
+    MSG_WND_DSP();
+    MSG( MSG_000 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_001 );
+    MSG_WND_CLS();
+    FUNCTION_0024( 26 );
+    WAIT( 10 );
+    MSG_WND_DSP();
+    MSG( MSG_002 );
+    MSG( MSG_003 );
+    MSG_WND_CLS();
+    FADE( 1, 10 );
+    CALL_BG_IMG( 6, 21, 0, 5 );
+    WAIT( 30 );
+    FUNCTION_000D( 15 );
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_004 );
+    MSG_WND_CLS();
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_005 );
+    MSG_WND_CLS();
+    BGM_STOP( 30 );
+    WAIT( 30 );
+    MSG_WND_DSP();
+    MSG( MSG_006 );
+    MSG_WND_CLS();
+    FUNCTION_002B( 132 );
+    WAIT( 40 );
+    MSG_WND_DSP();
+    MSG( MSG_007 );
+    MSG_WND_CLS();
+    FUNCTION_0025( 150 );
+    WAIT( 20 );
+    FADE( 1, 20 );
+    BGM_STOP( 0 );
+    CUSTOM_MOVIE_PLAY( 79 );
+    FADE( 1, 20 );
+    WAIT( 10 );
+    EVT_FUNCTION_0059( 0 );
+    EVT_FUNCTION_0001();
+    BGM_STOP( 0 );
+}
+

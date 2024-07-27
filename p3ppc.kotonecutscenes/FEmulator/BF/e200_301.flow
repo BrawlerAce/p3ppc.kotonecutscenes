@@ -1,0 +1,220 @@
+void SCR_e200_301_hook()
+{
+    int var0;
+    EVT_FUNCTION_0002();
+    WAIT( 20 );
+    FADE( 1, 20 );
+    BGM_STOP( 0 );
+	
+	if ( BIT_CHK( 313 ) )
+    {
+		CUSTOM_MOVIE_PLAY( 62 );
+	}
+	
+	else
+    {
+		CUSTOM_MOVIE_PLAY( 85 );
+	}
+	
+    FADE( 1, 20 );
+    FUNCTION_0025( 100 );
+    CALL_BG_IMG( 34, 1, 3, 3 );
+    WAIT( 80 );
+    BGM( 71 );
+    FUNCTION_000D( 20 );
+    WAIT( 20 );
+    MSG_WND_DSP();
+    MSG( MSG_000 );
+    var0 = SEL( SEL_001 );
+    
+    if ( var0 == 0 )
+    {
+        MSG( MSG_002 );
+    }
+
+    MSG_WND_CLS();
+    WAIT( 20 );
+    EVT_FUNCTION_003B( 0, 12 );
+    FUNCTION_002B( 63 );
+    WAIT( 45 );
+    MSG_WND_DSP();
+    MSG( MSG_003 );
+    MSG_WND_CLS();
+    FUNCTION_0025( 30 );
+    WAIT( 30 );
+    FUNCTION_003C( 62 );
+    EVT_FUNCTION_003C( 0, 0 );
+    WAIT( 30 );
+    FUNCTION_003C( 54 );
+    MSG_WND_DSP();
+    MSG( MSG_004 );
+    MSG_WND_CLS();
+    WAIT( 15 );
+    EVT_FUNCTION_003E( 0 );
+    MSG_WND_DSP();
+    MSG( MSG_005 );
+    MSG_WND_CLS();
+    WAIT( 30 );
+    MSG_WND_DSP();
+    BIT_OFF( 405 );
+    _3_10:
+    
+    if ( 1 )
+    {
+        FUNCTION_003C( 54 );
+        MSG( MSG_006 );
+        
+        if ( SEL( SEL_007 ) == 1 )
+        {
+            BIT_ON( 405 );
+        }
+        else 
+        {
+            BIT_OFF( 405 );
+        }
+
+        FUNCTION_003C( 54 );
+        MSG( MSG_008 );
+        
+        if ( ( SEL( SEL_009 ) == 0 ) && BIT_CHK( 405 ) )
+        {
+            BIT_ON( 405 );
+        }
+        else 
+        {
+            BIT_OFF( 405 );
+        }
+
+        FUNCTION_003C( 54 );
+        MSG( MSG_010 );
+        
+        if ( ( SEL( SEL_011 ) == 2 ) && BIT_CHK( 405 ) )
+        {
+            BIT_ON( 405 );
+        }
+        else 
+        {
+            BIT_OFF( 405 );
+            MSG( MSG_012 );
+            MSG_WND_CLS();
+            WAIT( 20 );
+            FUNCTION_003C( 54 );
+            MSG_WND_DSP();
+            MSG( MSG_013 );
+            MSG_WND_CLS();
+            WAIT( 15 );
+            MSG_WND_DSP();
+        }
+
+        
+        if ( BIT_CHK( 405 ) )
+        {
+            goto _4_11;
+        }
+
+        goto _3_10;
+    }
+
+    _4_11:
+    MSG( MSG_014 );
+    MSG_WND_CLS();
+    WAIT( 20 );
+    FUNCTION_0024( 0x40 );
+    WAIT( 15 );
+    MSG_WND_DSP();
+    MSG( MSG_015 );
+    MSG_WND_CLS();
+    FADE( 1, 5 );
+    FUNCTION_0024( 261 );
+    CALL_BG_IMG( 34, 1, 3, 1 );
+    WAIT( 10 );
+    FUNCTION_000D( 5 );
+    
+    if ( BIT_CHK( 313 ) )
+    {
+        MSG_WND_DSP();
+        MSG( MSG_016 );
+        MSG( MSG_017 );
+        var0 = SEL( SEL_018 );
+        
+        if ( var0 == 0 )
+        {
+            MSG( MSG_019 );
+        }
+        else 
+        {
+            MSG( MSG_020 );
+        }
+
+        MSG_WND_CLS();
+        WAIT( 20 );
+        FUNCTION_0024( 270 );
+        WAIT( 15 );
+        MSG_WND_DSP();
+        MSG( MSG_021 );
+        MSG_WND_CLS();
+        WAIT( 15 );
+        FUNCTION_0064( 0, 0, 0, 6, 0, 0, 0 );
+        MSG_WND_DSP();
+        MSG( MSG_022 );
+        SEL( SEL_023 );
+        MSG( MSG_024 );
+        MSG( MSG_025 );
+        MSG( MSG_026 );
+        MSG( MSG_027 );
+        MSG_WND_CLS();
+        FUNCTION_0065( 0 );
+        WAIT( 20 );
+        FUNCTION_0024( 261 );
+        WAIT( 20 );
+        MSG_WND_DSP();
+        MSG( MSG_028 );
+        MSG_WND_CLS();
+    }
+    else 
+    {
+        MSG_WND_DSP();
+        MSG( MSG_029 );
+        MSG( MSG_030 );
+        var0 = SEL( SEL_031 );
+        
+        if ( var0 == 0 )
+        {
+            MSG( MSG_032 );
+        }
+        else 
+        {
+            MSG( MSG_033 );
+        }
+
+        MSG_WND_CLS();
+        WAIT( 20 );
+        FUNCTION_0024( 270 );
+        WAIT( 15 );
+        MSG_WND_DSP();
+        MSG( MSG_034 );
+        MSG_WND_CLS();
+        WAIT( 15 );
+        MSG_WND_DSP();
+        FUNCTION_0064( 0, 0, 0, 6, 0, 0, 0 );
+        MSG( MSG_035 );
+        SEL( SEL_036 );
+        MSG( MSG_037 );
+        MSG( MSG_038 );
+        MSG( MSG_039 );
+        MSG( MSG_040 );
+        MSG_WND_CLS();
+        FUNCTION_0065( 0 );
+        WAIT( 20 );
+        FUNCTION_0024( 261 );
+        WAIT( 20 );
+        MSG_WND_DSP();
+        MSG( MSG_041 );
+        MSG_WND_CLS();
+    }
+
+    FADE( 1, 10 );
+    EVT_FUNCTION_0001();
+    BGM_STOP( 0 );
+}
+

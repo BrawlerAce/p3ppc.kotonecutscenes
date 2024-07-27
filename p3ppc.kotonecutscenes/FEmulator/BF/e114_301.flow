@@ -1,0 +1,7 @@
+void SCR_e114_301_hook()
+{
+    WAIT( 20 );
+    BGM_STOP( 0 );
+    CUSTOM_MOVIE_PLAY( 55 );
+}
+
