@@ -11,7 +11,9 @@ void sdl04_06_PM_D_hook()
     CALL_EVENT( 102, 1 );
     CALL_EVENT( 100, 1 );
     FCL_FUNCTION_0017();
+    CALL_EVENT( 100, 2 );
     BIT_OFF( 5149 );
+    CALL_EVENT( 101, 1 );
     BIT_ON( 4105 );
     CALL_NAME_ENTRY();
     BIT_OFF( 4105 );
