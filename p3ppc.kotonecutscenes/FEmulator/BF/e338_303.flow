@@ -197,11 +197,10 @@ void SCR_e338_303_hook()
             }
 
             EVT_FUNCTION_0001();
-            BGM_STOP( 0 );
             WAIT( 60 );
+            BGM_STOP( 0 );
 			BGM( 42 );
-			CUSTOM_MOVIE_PLAY( 81 );
-			CUSTOM_MOVIE_PLAY( 87 );
+			CUSTOM_MOVIE_PLAY( 83 );
 			BGM_STOP( 0 );
             return;
         }
@@ -231,23 +230,23 @@ void SCR_e338_303_hook()
     FUNCTION_0010( 1, 60, 255, 255, 255 );
     WAIT( 30 );
     BGM_STOP( 60 );
-    WAIT( 30 );
+    WAIT( 60 );
     FADE( 1, 20 );
     BGM_STOP( 0 );
     CUSTOM_MOVIE_PLAY( 80 );
     WAIT( 10 );
+	BGM( 42 );
 	
+	// Shinji death check
+	//   Shinji alive
 	if ( BIT_CHK( 2098 ) && BIT_CHK( 2106 ) )
 	{
-		BGM( 42 );
 		CUSTOM_MOVIE_PLAY( 81 );
-		CUSTOM_MOVIE_PLAY( 82 );
 	}
+	//   Shinji dead
 	else
 	{
-		BGM( 42 );
-		CUSTOM_MOVIE_PLAY( 81 );
-		CUSTOM_MOVIE_PLAY( 83 );
+		CUSTOM_MOVIE_PLAY( 82 );
 	}
     BGM_STOP( 0 );
 }
