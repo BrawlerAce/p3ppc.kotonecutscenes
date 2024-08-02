@@ -25,7 +25,8 @@ namespace p3ppc.kotonecutscenes.Configuration
 
             The `DefaultValue` attribute is used as part of the `Reset` button in Reloaded-Launcher.
         */
-        
+
+        [Category("Credits Music")]
         [DisplayName("Good Ending Theme")]
         [Description("Select music to play during the good ending.\n\nOriginal: Memories of You\nReload: Memories of You -Reload-\nReloadInstrumental: Memories of You -Reload Instrumental-\nMovie: Memories of You (Remix) (Persona 3 the Movie)\nOrchestra: Memories of You ~Orchestra ver.~")]
         [DefaultValue(GoodEnding.Original)]
@@ -40,6 +41,7 @@ namespace p3ppc.kotonecutscenes.Configuration
             Orchestral
         }
 
+        [Category("Credits Music")]
         [DisplayName("Bad Ending Theme")]
         [Description("Select music to play during the bad ending.\n\nOriginal: Plays the same Memories of You version as in the good ending.\nReload: Mistic -Reload-\nMistic: Mistic (original)")]
         [DefaultValue(BadEnding.Original)]
