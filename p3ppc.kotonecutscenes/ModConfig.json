@@ -1,9 +1,9 @@
 {
   "ModId": "p3ppc.kotonecutscenes",
   "ModName": "Kotone Cutscene Project",
-  "ModAuthor": "Commando and friends",
+  "ModAuthor": "Kotone Cutscene Project Team",
   "ModVersion": "1.0.0",
-  "ModDescription": "Adds animated 2D cutscenes for the FEMC route of P3P.",
+  "ModDescription": "Adds animated 2D cutscenes to the female protagonist route.",
   "ModDll": "p3ppc.kotonecutscenes.dll",
   "ModIcon": "Preview.png",
   "ModR2RManagedDll32": "x86/p3ppc.kotonecutscenes.dll",
@@ -22,6 +22,15 @@
   "PluginData": {
     "GitHubDependencies": {
       "IdToConfigMap": {
+        "crifs.v2.hook": {
+          "Config": {
+            "UserName": "Sewer56",
+            "RepositoryName": "CriFs.V2.Hook.ReloadedII",
+            "UseReleaseTag": false,
+            "AssetFileName": "Mod.zip"
+          },
+          "ReleaseMetadataName": "CriFs.V2.Hook.ReleaseMetadata.json"
+        },
         "p3ppc.moviePlayer": {
           "Config": {
             "UserName": "AnimatedSwine37",
@@ -39,6 +48,15 @@
             "AssetFileName": "Mod.zip"
           },
           "ReleaseMetadataName": "p5rpc.modloader.ReleaseMetadata.json"
+        },
+        "reloaded.universal.fileemulationframework.bf": {
+          "Config": {
+            "UserName": "Sewer56",
+            "RepositoryName": "FileEmulationFramework",
+            "UseReleaseTag": false,
+            "AssetFileName": "Mod.zip"
+          },
+          "ReleaseMetadataName": "BF.File.Emulator.ReleaseMetadata.json"
         },
         "Reloaded.Memory.SigScan.ReloadedII": {
           "Config": {
@@ -58,6 +76,15 @@
           },
           "ReleaseMetadataName": "Sewer56.Update.ReleaseMetadata.json"
         },
+        "p5rpc.lib": {
+          "Config": {
+            "UserName": "AnimatedSwine37",
+            "RepositoryName": "p5rpc.lib",
+            "UseReleaseTag": true,
+            "AssetFileName": "Mod.zip"
+          },
+          "ReleaseMetadataName": "p5rpc.lib.ReleaseMetadata.json"
+        },
         "CriFs.V2.Hook.Awb": {
           "Config": {
             "UserName": "Sewer56",
@@ -66,15 +93,6 @@
             "AssetFileName": "Mod.zip"
           },
           "ReleaseMetadataName": "CriFs.V2.Hook.Awb.ReleaseMetadata.json"
-        },
-        "crifs.v2.hook": {
-          "Config": {
-            "UserName": "Sewer56",
-            "RepositoryName": "CriFs.V2.Hook.ReloadedII",
-            "UseReleaseTag": false,
-            "AssetFileName": "Mod.zip"
-          },
-          "ReleaseMetadataName": "CriFs.V2.Hook.ReleaseMetadata.json"
         },
         "reloaded.universal.fileemulationframework.pak": {
           "Config": {
@@ -94,14 +112,14 @@
           },
           "ReleaseMetadataName": "BMD.File.Emulator.ReleaseMetadata.json"
         },
-        "reloaded.universal.fileemulationframework.bf": {
+        "reloaded.universal.fileemulationframework.spd": {
           "Config": {
             "UserName": "Sewer56",
             "RepositoryName": "FileEmulationFramework",
             "UseReleaseTag": false,
             "AssetFileName": "Mod.zip"
           },
-          "ReleaseMetadataName": "BF.File.Emulator.ReleaseMetadata.json"
+          "ReleaseMetadataName": "SPD.File.Emulator.ReleaseMetadata.json"
         },
         "reloaded.universal.fileemulationframework.awb": {
           "Config": {
@@ -122,6 +140,28 @@
           "ReleaseMetadataName": "Reloaded.Universal.FileEmulationFramework.ReleaseMetadata.json"
         }
       }
+    },
+    "GameBananaDependencies": {
+      "IdToConfigMap": {
+        "BGME.Framework": {
+          "Config": {
+            "ItemType": "Mod",
+            "ItemId": 477399
+          },
+          "ReleaseMetadataName": "BGME.Framework.ReleaseMetadata.json"
+        },
+        "BGME.Framework.API": {
+          "Config": {
+            "ItemType": "Mod",
+            "ItemId": 477399
+          },
+          "ReleaseMetadataName": "BGME.Framework.API.ReleaseMetadata.json"
+        }
+      }
+    },
+    "GameBanana": {
+      "ItemType": "Mod",
+      "ItemId": 532448
     }
   },
   "IsUniversalMod": false,
@@ -137,5 +177,5 @@
   "SupportedAppId": [
     "p3p.exe"
   ],
-  "ProjectUrl": ""
+  "ProjectUrl": "https://gamebanana.com/mods/532448"
 }
