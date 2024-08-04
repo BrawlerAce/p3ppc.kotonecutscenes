@@ -4,3 +4,12 @@
 [submodule "Interfaces/CriFs.V2.Hook.ReloadedII"]
 	path = Interfaces/CriFs.V2.Hook.ReloadedII
 	url = https://github.com/Sewer56/CriFs.V2.Hook.ReloadedII.git
+[submodule "Submodules/FileEmulationFramework"]
+	path = Submodules/FileEmulationFramework
+	url = https://github.com/Sewer56/FileEmulationFramework
+[submodule "Submodules/CriFs.V2.Hook.ReloadedII"]
+	path = Submodules/CriFs.V2.Hook.ReloadedII
+	url = https://github.com/Sewer56/CriFs.V2.Hook.ReloadedII
+[submodule "Submodules/BGME"]
+	path = Submodules/BGME
+	url = https://github.com/T-PoseRatkechi/BGME
