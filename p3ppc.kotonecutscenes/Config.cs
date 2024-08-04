@@ -25,7 +25,13 @@ namespace p3ppc.kotonecutscenes.Configuration
 
             The `DefaultValue` attribute is used as part of the `Reset` button in Reloaded-Launcher.
         */
-
+        
+        [Category("Colours")]
+        [DisplayName("Fem Title Screen")]
+        [Description("Changes the colours of the title screen to be pink instead of the normal blue.")]
+        [DefaultValue(true)]
+        public bool PinkTitleScreen { get; set; } = true;
+        
         [Category("Credits Music")]
         [DisplayName("Good Ending Theme")]
         [Description("Select music to play during the good ending.\n\nOriginal: Memories of You\nReload: Memories of You -Reload-\nReloadInstrumental: Memories of You -Reload Instrumental-\nMovie: Memories of You (Remix) (Persona 3 the Movie)\nOrchestra: Memories of You ~Orchestra ver.~")]
