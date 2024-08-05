@@ -7,6 +7,7 @@ using CriFs.V2.Hook;
 using CriFs.V2.Hook.Interfaces;
 using BF.File.Emulator;
 using BF.File.Emulator.Interfaces;
+using p3ppc.kotonecutscenes.Components;
 
 namespace p3ppc.kotonecutscenes
 {
@@ -46,6 +47,11 @@ namespace p3ppc.kotonecutscenes
         /// </summary>
         private readonly IModConfig _modConfig;
 
+        /// <summary>
+        /// Hooks the title screen, changing its colour
+        /// </summary>
+        private TitleScreen _titleScreen;
+
         public Mod(ModContext context)
         {
             _modLoader = context.ModLoader;
@@ -63,6 +69,10 @@ namespace p3ppc.kotonecutscenes
             // and some other neat features, override the methods in ModBase.
 
             // TODO: Implement some mod logic
+
+            Utils.Initialise(_logger, _configuration, _modLoader);
+            
+            _titleScreen = new TitleScreen(_hooks, _configuration);
 
             var criFsController = _modLoader.GetController<ICriFsRedirectorApi>();
             if (criFsController == null || !criFsController.TryGetTarget(out var criFsApi))
@@ -149,6 +159,7 @@ namespace p3ppc.kotonecutscenes
             // Apply settings from configuration.
             // ... your code here.
             _configuration = configuration;
+            _titleScreen.ConfigChanged(configuration);
             _logger.WriteLine($"[{_modConfig.ModId}] Config Updated: Applying");
         }
         #endregion
