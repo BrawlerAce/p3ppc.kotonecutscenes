@@ -5,13 +5,15 @@ VisualStudioVersion = 17.8.34601.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p3ppc.kotonecutscenes", "p3ppc.kotonecutscenes\p3ppc.kotonecutscenes.csproj", "{64C1C5B2-677A-4890-BD40-8B9E19F98D08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CriFs.V2.Hook.Interfaces", "Submodules\CriFs.V2.Hook.ReloadedII\Interfaces\CriFs.V2.Hook.Interfaces\CriFs.V2.Hook.Interfaces.csproj", "{064B30A1-3825-415E-9AB0-545DAABE96A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CriFs.V2.Hook.Interfaces", "Submodules\CriFs.V2.Hook.ReloadedII\Interfaces\CriFs.V2.Hook.Interfaces\CriFs.V2.Hook.Interfaces.csproj", "{064B30A1-3825-415E-9AB0-545DAABE96A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BF.File.Emulator.Interfaces", "Submodules\FileEmulationFramework\Emulator\Interfaces\BF.File.Emulator.Interfaces\BF.File.Emulator.Interfaces.csproj", "{C32136E4-99F5-4758-8551-87E18BD7F957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BF.File.Emulator.Interfaces", "Submodules\FileEmulationFramework\Emulator\Interfaces\BF.File.Emulator.Interfaces\BF.File.Emulator.Interfaces.csproj", "{C32136E4-99F5-4758-8551-87E18BD7F957}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Submodules", "Submodules", "{F0B24B8B-1B4F-471E-918D-4519417BB6B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGME.Framework.Interfaces", "Submodules\BGME\BGME.Framework.Interfaces\BGME.Framework.Interfaces.csproj", "{015844C0-689B-46F0-8887-0325FDBEEBB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BGME.Framework.Interfaces", "Submodules\BGME\BGME.Framework.Interfaces\BGME.Framework.Interfaces.csproj", "{015844C0-689B-46F0-8887-0325FDBEEBB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PAK.Stream.Emulator.Interfaces", "Submodules\FileEmulationFramework\Emulator\Interfaces\PAK.Stream.Emulator.Interfaces\PAK.Stream.Emulator.Interfaces.csproj", "{C441E7E8-6714-492C-AE81-A98AC0139F4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,16 +37,21 @@ Global
 		{015844C0-689B-46F0-8887-0325FDBEEBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{015844C0-689B-46F0-8887-0325FDBEEBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{015844C0-689B-46F0-8887-0325FDBEEBB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C441E7E8-6714-492C-AE81-A98AC0139F4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C441E7E8-6714-492C-AE81-A98AC0139F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C441E7E8-6714-492C-AE81-A98AC0139F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C441E7E8-6714-492C-AE81-A98AC0139F4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{064B30A1-3825-415E-9AB0-545DAABE96A4} = {F0B24B8B-1B4F-471E-918D-4519417BB6B9}
+		{C32136E4-99F5-4758-8551-87E18BD7F957} = {F0B24B8B-1B4F-471E-918D-4519417BB6B9}
+		{015844C0-689B-46F0-8887-0325FDBEEBB5} = {F0B24B8B-1B4F-471E-918D-4519417BB6B9}
+		{C441E7E8-6714-492C-AE81-A98AC0139F4B} = {F0B24B8B-1B4F-471E-918D-4519417BB6B9}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DFB82D4D-0FC2-450D-81B6-C97CCACED008}
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{C32136E4-99F5-4758-8551-87E18BD7F957} = {F0B24B8B-1B4F-471E-918D-4519417BB6B9}
-		{064B30A1-3825-415E-9AB0-545DAABE96A4} = {F0B24B8B-1B4F-471E-918D-4519417BB6B9}
-		{015844C0-689B-46F0-8887-0325FDBEEBB5} = {F0B24B8B-1B4F-471E-918D-4519417BB6B9}
 	EndGlobalSection
 EndGlobal
