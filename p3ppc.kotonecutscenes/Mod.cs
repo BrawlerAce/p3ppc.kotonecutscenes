@@ -7,6 +7,8 @@ using CriFs.V2.Hook;
 using CriFs.V2.Hook.Interfaces;
 using BF.File.Emulator;
 using BF.File.Emulator.Interfaces;
+using PAK.Stream.Emulator;
+using PAK.Stream.Emulator.Interfaces;
 using p3ppc.kotonecutscenes.Components;
 
 namespace p3ppc.kotonecutscenes
@@ -77,14 +79,21 @@ namespace p3ppc.kotonecutscenes
             var criFsController = _modLoader.GetController<ICriFsRedirectorApi>();
             if (criFsController == null || !criFsController.TryGetTarget(out var criFsApi))
             {
-                _logger.WriteLine($"criFsController returned as null! p3ppc.kotonecutscenes may not work properly!", System.Drawing.Color.Red);
+                _logger.WriteLine($"criFsController returned as null! It's Kotover for p3ppc.kotonecutscenes...", System.Drawing.Color.Red);
                 return;
             }
 
             var BfEmulatorController = _modLoader.GetController<IBfEmulator>();
             if (BfEmulatorController == null || !BfEmulatorController.TryGetTarget(out var _BfEmulator))
             {
-                _logger.WriteLine($"BfEmulatorController returned as null! p3ppc.kotonecutscenes may not work properly!", System.Drawing.Color.Red);
+                _logger.WriteLine($"BfEmulatorController returned as null! It's Kotover for p3ppc.kotonecutscenes...", System.Drawing.Color.Red);
+                return;
+            }
+
+            var PakEmulatorController = _modLoader.GetController<IPakEmulator>();
+            if (PakEmulatorController == null || !PakEmulatorController.TryGetTarget(out var _PakEmulator))
+            {
+                _logger.WriteLine($"PakEmulatorController returned as null! It's Kotover for p3ppc.kotonecutscenes...", System.Drawing.Color.Red);
                 return;
             }
 
@@ -92,32 +101,45 @@ namespace p3ppc.kotonecutscenes
 
             var modDir = _modLoader.GetDirectoryForModId(_modConfig.ModId);
 
+            // Opening 1
+
+            if (_configuration.OP1 == true)
+            {
+                criFsApi.AddProbingPath(Path.Combine(modDir, "Config", "MoonlightDaydream"));
+            }
+
+            // Pink Title Screen
+
+            if (_configuration.PinkTitleScreen == true)
+            {
+                _PakEmulator.AddDirectory(Path.Combine(modDir, "Config", "PinkTitleScreen"));
+            }
 
             // Good Ending Music
 
             if (_configuration.GoodEndingMusic == Config.GoodEnding.Original)
             {
-                bgmeApi.AddFolder(Path.Combine(modDir, "MusicConfig", "GoodEnding", "Original"));
+                bgmeApi.AddFolder(Path.Combine(modDir, "Config", "MusicConfig", "GoodEnding", "Original"));
             }
 
             if (_configuration.GoodEndingMusic == Config.GoodEnding.Orchestral)
             {
-                bgmeApi.AddFolder(Path.Combine(modDir, "MusicConfig", "GoodEnding", "Orchestral"));
+                bgmeApi.AddFolder(Path.Combine(modDir, "Config", "MusicConfig", "GoodEnding", "Orchestral"));
             }
 
             if (_configuration.GoodEndingMusic == Config.GoodEnding.Reload)
             {
-                bgmeApi.AddFolder(Path.Combine(modDir, "MusicConfig", "GoodEnding", "Reload"));
+                bgmeApi.AddFolder(Path.Combine(modDir, "Config", "MusicConfig", "GoodEnding", "Reload"));
             }
 
             if (_configuration.GoodEndingMusic == Config.GoodEnding.ReloadInstrumental)
             {
-                bgmeApi.AddFolder(Path.Combine(modDir, "MusicConfig", "GoodEnding", "ReloadInstrumental"));
+                bgmeApi.AddFolder(Path.Combine(modDir, "Config", "MusicConfig", "GoodEnding", "ReloadInstrumental"));
             }
 
             if (_configuration.GoodEndingMusic == Config.GoodEnding.Movie)
             {
-                bgmeApi.AddFolder(Path.Combine(modDir, "MusicConfig", "GoodEnding", "Movie"));
+                bgmeApi.AddFolder(Path.Combine(modDir, "Config", "MusicConfig", "GoodEnding", "Movie"));
             }
 
             // Bad Ending Music
@@ -139,17 +161,17 @@ namespace p3ppc.kotonecutscenes
 
             if (_configuration.BadEndingMusic == Config.BadEnding.Original)
             {
-                _BfEmulator.AddDirectory(Path.Combine(modDir, "MusicConfig", "BadEnding", "Original"));
+                _BfEmulator.AddDirectory(Path.Combine(modDir, "Config", "MusicConfig", "BadEnding", "Original"));
             }
 
             if (_configuration.BadEndingMusic == Config.BadEnding.Reload)
             {
-                _BfEmulator.AddDirectory(Path.Combine(modDir, "MusicConfig", "BadEnding", "Reload"));
+                _BfEmulator.AddDirectory(Path.Combine(modDir, "Config", "MusicConfig", "BadEnding", "Reload"));
             }
 
             if (_configuration.BadEndingMusic == Config.BadEnding.Mistic)
             {
-                _BfEmulator.AddDirectory(Path.Combine(modDir, "MusicConfig", "BadEnding", "Mistic"));
+                _BfEmulator.AddDirectory(Path.Combine(modDir, "Config", "MusicConfig", "BadEnding", "Mistic"));
             }
         }
 

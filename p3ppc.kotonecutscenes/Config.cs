@@ -25,10 +25,16 @@ namespace p3ppc.kotonecutscenes.Configuration
 
             The `DefaultValue` attribute is used as part of the `Reset` button in Reloaded-Launcher.
         */
-        
-        [Category("Colours")]
-        [DisplayName("Fem Title Screen")]
-        [Description("Changes the colours of the title screen to be pink instead of the normal blue.")]
+
+        [Category("Opening Movie")]
+        [DisplayName("Moonlight Daydream over Soul Phrase")]
+        [Description("Enables Moonlight Daydream (original OP for the Kotone\nCutscenes Project), replacing Soul Phrase.")]
+        [DefaultValue(true)]
+        public bool OP1 { get; set; } = true;
+
+        [Category("Title Screen")]
+        [DisplayName("FEMC Title Screen")]
+        [Description("Makes the title screen FEMC themed with pink assets instead\nof the default colors, as well as adding new Kotone art.")]
         [DefaultValue(true)]
         public bool PinkTitleScreen { get; set; } = true;
         

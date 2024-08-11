@@ -1,0 +1,15 @@
+[
+  {
+    "Index": "0x0004",
+    "ReturnType": "void",
+    "Name": "CUSTOM_MOVIE_PLAY",
+    "Description": "Custom function that plays a usm based on its id. This REQUIRES the Movie Player mod to work!",
+    "Parameters": [
+      {
+        "Type": "int",
+        "Name": "CutsceneId",
+        "Description": "The id of the usm to play, the usm should be in \\data\\sound\\usm and be called CutsceneId.usm (e.g. 21.usm for id 21)"
+      }
+    ]
+  }
+]

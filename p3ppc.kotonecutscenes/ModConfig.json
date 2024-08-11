@@ -187,7 +187,8 @@
     "p5rpc.modloader",
     "Reloaded.Memory.SigScan.ReloadedII",
     "reloaded.sharedlib.hooks",
-    "reloaded.universal.fileemulationframework.bf"
+    "reloaded.universal.fileemulationframework.bf",
+    "reloaded.universal.fileemulationframework.pak"
   ],
   "OptionalDependencies": [],
   "SupportedAppId": [

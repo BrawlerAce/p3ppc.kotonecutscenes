@@ -52,7 +52,7 @@
     <Content Include="FEmulator\**">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="MusicConfig\**">
+    <Content Include="Config\**">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="P5REssentials\**">
@@ -64,6 +64,7 @@
     <ProjectReference Include="..\Submodules\BGME\BGME.Framework.Interfaces\BGME.Framework.Interfaces.csproj" />
     <ProjectReference Include="..\Submodules\CriFs.V2.Hook.ReloadedII\Interfaces\CriFs.V2.Hook.Interfaces\CriFs.V2.Hook.Interfaces.csproj" />
     <ProjectReference Include="..\Submodules\FileEmulationFramework\Emulator\Interfaces\BF.File.Emulator.Interfaces\BF.File.Emulator.Interfaces.csproj" />
+    <ProjectReference Include="..\Submodules\FileEmulationFramework\Emulator\Interfaces\PAK.Stream.Emulator.Interfaces\PAK.Stream.Emulator.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>
