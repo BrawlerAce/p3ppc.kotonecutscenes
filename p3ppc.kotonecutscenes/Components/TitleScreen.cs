@@ -7,8 +7,9 @@ namespace p3ppc.kotonecutscenes.Components;
 
 public class TitleScreen
 {
-    private static readonly int TITLE_SCREEN_COLOUR = 0x7D0000FF;
-    
+    // Colour is ABGR (opposite of what you'd expect)
+    private static readonly uint TITLE_SCREEN_COLOUR = 0xFF4631B2;
+
     private IAsmHook _titleScreenColourHook;
     private Config _config;
     
