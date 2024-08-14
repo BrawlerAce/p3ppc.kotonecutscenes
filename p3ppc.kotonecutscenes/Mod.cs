@@ -10,6 +10,11 @@ using BF.File.Emulator.Interfaces;
 using PAK.Stream.Emulator;
 using PAK.Stream.Emulator.Interfaces;
 using p3ppc.kotonecutscenes.Components;
+using Reloaded.Memory;
+using Reloaded.Memory.Interfaces;
+using Reloaded.Memory.SigScan.ReloadedII.Interfaces;
+using static p3ppc.kotonecutscenes.Utils;
+using System;
 
 namespace p3ppc.kotonecutscenes
 {
@@ -101,6 +106,8 @@ namespace p3ppc.kotonecutscenes
 
             var modDir = _modLoader.GetDirectoryForModId(_modConfig.ModId);
 
+            Memory memory = Memory.Instance;
+
             // Opening 1
 
             if (_configuration.OP1 == true)
@@ -112,7 +119,20 @@ namespace p3ppc.kotonecutscenes
 
             if (_configuration.PinkTitleScreen == true)
             {
+                // add pink title screen assets
                 _PakEmulator.AddDirectory(Path.Combine(modDir, "Config", "PinkTitleScreen"));
+
+                SigScan("75 ?? F6 83 ?? ?? ?? ?? 02 74 ?? E8 ?? ?? ?? ??", "Fix crashes on title screen", address =>
+                {
+                    memory.SafeWrite((nuint)address, new byte[] { 0x90, 0x90 });
+                });
+
+                SigScan("0F BA F0 07 ?? ?? ?? ?? ?? ?? ??", "Pink Loading Card + Icon", address =>
+                {
+                    memory.SafeWrite((nuint)(address + 2), new byte[] { 0xE8 });
+                });
+
+                // note that pink background is handled in TitleScreen.cs
             }
 
             // Good Ending Music
@@ -173,6 +193,8 @@ namespace p3ppc.kotonecutscenes
             {
                 _BfEmulator.AddDirectory(Path.Combine(modDir, "Config", "MusicConfig", "BadEnding", "Mistic"));
             }
+
+            // FEMC Title Screen, etc assets
         }
 
         #region Standard Overrides
