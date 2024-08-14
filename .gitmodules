@@ -13,3 +13,6 @@
 [submodule "Submodules/BGME"]
 	path = Submodules/BGME
 	url = https://github.com/T-PoseRatkechi/BGME
+[submodule "Submodules/Reloaded.Memory"]
+	path = Submodules/Reloaded.Memory
+	url = https://github.com/Reloaded-Project/Reloaded.Memory
