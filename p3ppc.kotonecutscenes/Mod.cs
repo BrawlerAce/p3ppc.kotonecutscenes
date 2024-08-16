@@ -127,7 +127,7 @@ namespace p3ppc.kotonecutscenes
                     memory.SafeWrite((nuint)address, new byte[] { 0x90, 0x90 });
                 });
 
-                SigScan("0F BA F0 07 ?? ?? ?? ?? ?? ?? ??", "Pink Loading Card + Icon", address =>
+                Utils.SigScan("0F BA F0 07 ?? ?? ?? ?? ?? ?? ??", "Pink Loading Card + Title Config", new[] { 4 }, address =>
                 {
                     memory.SafeWrite((nuint)(address + 2), new byte[] { 0xE8 });
                 });

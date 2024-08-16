@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Text;
 using p3ppc.kotonecutscenes.Configuration;
+using Reloaded.Memory.Sigscan;
 using Reloaded.Memory.SigScan.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
 
@@ -107,6 +108,65 @@ public class Utils
     internal static unsafe nuint GetGlobalAddress(nint ptrAddress)
     {
         return (nuint)((*(int*)ptrAddress) + ptrAddress + 4);
+    }
+
+    /// <summary>
+    /// Scans for multiple instances of a signature
+    /// </summary>
+    /// <param name="pattern">The pattern/signature to look for</param>
+    /// <param name="name">The name of the thing you're looking for (used only for logging)</param>
+    /// <param name="indexes">A list of 0 based indexes of the results to find. e.g. [0, 2] will get the first and third instance of the pattern</param>
+    /// <param name="action">The action to run each time an instance of the pattern is found at one of the specified indexes</param>
+    internal static void SigScan(string pattern, string name, int[] indexes, Action<nint> action)
+    {
+        using var thisProcess = Process.GetCurrentProcess();
+        using var scanner = new Scanner(thisProcess, thisProcess.MainModule);
+        int offset = 0;
+        int maxIndex = indexes.Max() + 1;
+
+        for (int i = 0; i < maxIndex; i++)
+        {
+            var result = scanner.FindPattern(pattern, offset);
+
+            if (!result.Found)
+            {
+                LogError($"Unable to find {name} at index {i}, stuff won't work :(");
+                return;
+            }
+
+            if (indexes.Contains(i))
+            {
+                Log($"Found {name} ({i}) at 0x{result.Offset + BaseAddress:X}");
+
+                action(result.Offset + BaseAddress);
+                offset = result.Offset + 1;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Scans for all instances of a signature
+    /// </summary>
+    /// <param name="pattern">The pattern/signature to look for</param>
+    /// <param name="name">The name of the thing you're looking for (used only for logging)</param>
+    /// <param name="action">The action to run each time an instance of the pattern is found</param>
+
+    internal static void SigScanAll(string pattern, string name, Action<nint> action)
+    {
+        using var thisProcess = Process.GetCurrentProcess();
+        using var scanner = new Scanner(thisProcess, thisProcess.MainModule);
+        int offset = 0;
+
+        var result = scanner.FindPattern(pattern, offset);
+        int i = 0;
+        while (result.Found)
+        {
+            Log($"Found {name} ({i++}) at 0x{result.Offset + BaseAddress:X}");
+
+            action(result.Offset + BaseAddress);
+            offset = result.Offset + 1;
+            result = scanner.FindPattern(pattern, offset);
+        }
     }
 
 }
