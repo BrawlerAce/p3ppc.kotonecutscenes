@@ -122,9 +122,9 @@ public class Utils
         using var thisProcess = Process.GetCurrentProcess();
         using var scanner = new Scanner(thisProcess, thisProcess.MainModule);
         int offset = 0;
-        int maxIndex = indexes.Max() + 1;
+        int maxIndex = indexes.Max();
 
-        for (int i = 0; i < maxIndex; i++)
+        for (int i = 0; i < maxIndex + 1; i++)
         {
             var result = scanner.FindPattern(pattern, offset);
 
@@ -139,9 +139,21 @@ public class Utils
                 Log($"Found {name} ({i}) at 0x{result.Offset + BaseAddress:X}");
 
                 action(result.Offset + BaseAddress);
-                offset = result.Offset + 1;
             }
+            offset = result.Offset + 1;
         }
+    }
+
+    /// <summary>
+    /// Scans for multiple instances of a signature
+    /// </summary>
+    /// <param name="pattern">The pattern/signature to look for</param>
+    /// <param name="name">The name of the thing you're looking for (used only for logging)</param>
+    /// <param name="indexes">A 0 based index of the results to find. e.g. 2 will get the third instance of the pattern</param>
+    /// <param name="action">The action to run each time an instance of the pattern is found at one of the specified indexes</param>
+    internal static void SigScan(string pattern, string name, int index, Action<nint> action)
+    {
+        SigScan(pattern, name, new int[] { index }, action);
     }
 
     /// <summary>
