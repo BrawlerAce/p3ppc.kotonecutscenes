@@ -1,27 +1,23 @@
 ﻿using p3ppc.kotonecutscenes.Configuration;
 using p3ppc.kotonecutscenes.Template;
-using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
 using BGME.Framework.Interfaces;
-using CriFs.V2.Hook;
 using CriFs.V2.Hook.Interfaces;
-using BF.File.Emulator;
 using BF.File.Emulator.Interfaces;
-using PAK.Stream.Emulator;
 using PAK.Stream.Emulator.Interfaces;
 using p3ppc.kotonecutscenes.Components;
 using Reloaded.Memory;
 using Reloaded.Memory.Interfaces;
-using Reloaded.Memory.SigScan.ReloadedII.Interfaces;
 using static p3ppc.kotonecutscenes.Utils;
-using System;
+using Reloaded.Hooks.Definitions;
+using System.Runtime.InteropServices;
 
 namespace p3ppc.kotonecutscenes
 {
     /// <summary>
     /// Your mod logic goes here.
     /// </summary>
-    public class Mod : ModBase // <= Do not Remove.
+    public unsafe class Mod : ModBase // <= Do not Remove.
     {
         /// <summary>
         /// Provides access to the mod loader API.
@@ -32,7 +28,7 @@ namespace p3ppc.kotonecutscenes
         /// Provides access to the Reloaded.Hooks API.
         /// </summary>
         /// <remarks>This is null if you remove dependency on Reloaded.SharedLib.Hooks in your mod.</remarks>
-        private readonly IReloadedHooks? _hooks;
+        private readonly Reloaded.Hooks.Definitions.IReloadedHooks? _hooks;
 
         /// <summary>
         /// Provides access to the Reloaded logger.
@@ -58,6 +54,14 @@ namespace p3ppc.kotonecutscenes
         /// Hooks the title screen, changing its colour
         /// </summary>
         private TitleScreen _titleScreen;
+
+        private IHook<IntroDelegate> _introHook;
+        private PlayMoviePlayDelegate _playMovie;
+        private nuint _movieThing1;
+        private nuint* _movieThing2;
+
+        private int _introCount;
+
 
         public Mod(ModContext context)
         {
@@ -196,6 +200,88 @@ namespace p3ppc.kotonecutscenes
             }
 
             // FEMC Title Screen, etc assets
+
+            Utils.SigScan("48 89 5C 24 ?? 57 48 83 EC 30 48 8B F9 48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8B 5F ?? 48 63 03", "Intro", address =>
+            {
+                _introHook = _hooks.CreateHook<IntroDelegate>(Intro, address).Activate();
+            });
+
+            Utils.SigScan("48 89 5C 24 ?? 48 89 6C 24 ?? 48 89 74 24 ?? 48 89 7C 24 ?? 41 56 48 83 EC 40 49 89 CE 4C 89 CE", "PlayMovie", address =>
+            {
+                _playMovie = _hooks.CreateWrapper<PlayMoviePlayDelegate>(address, out _);
+            });
+
+
+            Utils.SigScan("48 8B 05 ?? ?? ?? ?? 4C 8D 05 ?? ?? ?? ?? 48 89 44 24 ??", "PlayMovieArgs", address =>
+            {
+                _movieThing1 = Utils.GetGlobalAddress(address + 10);
+
+                _movieThing2 = (nuint*)Utils.GetGlobalAddress(address + 3);
+            });
+
+        }
+
+        private nuint Intro(IntroStruct* introStruct)
+        {
+            var stateInfo = introStruct->StateInfo;
+
+            if (stateInfo->state == IntroState.MovieStart)
+            {
+                string currentMovie;
+                if (_introCount == 0)
+                {
+                    currentMovie = "sound/usm/P3OPMV_P3P.usm";
+                }
+                else if (_introCount == 1)
+                {
+                    currentMovie = "sound/usm/P3OPMV_P3PB.usm";
+                }
+                else
+                {
+                    currentMovie = "sound/usm/P3OPMV_P3PC.usm";
+                }
+
+                var taskHandle = _playMovie(introStruct, currentMovie, _movieThing1, 0, 0, *_movieThing2);
+
+                stateInfo->Task = taskHandle;
+                _introCount = (_introCount + 1) % 3;
+                stateInfo->state = IntroState.MoviePlaying;
+                return 0;
+            }
+
+            return _introHook.OriginalFunction(introStruct);
+        }
+
+        private delegate nuint IntroDelegate(IntroStruct* introStruct);
+
+        private delegate TaskStruct* PlayMoviePlayDelegate(IntroStruct* introStruct, string moviePath, nuint movieThing1, int param4, int param5, nuint movieThing2);
+
+        [StructLayout(LayoutKind.Explicit)]
+        private struct IntroStruct
+        {
+            [FieldOffset(0x48)]
+            internal IntroStateStruct* StateInfo;
+        }
+
+        [StructLayout(LayoutKind.Explicit)]
+        private struct IntroStateStruct
+        {
+            [FieldOffset(0)]
+            internal IntroState state;
+
+            [FieldOffset(0x10)]
+            internal TaskStruct* Task;
+        }
+
+        private struct TaskStruct
+        {
+        }
+
+        private enum IntroState : int
+        {
+            MovieStart = 4,
+            MoviePlaying = 5,
+            TitleScreen = 7
         }
 
         #region Standard Overrides
