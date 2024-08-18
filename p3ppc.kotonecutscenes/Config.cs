@@ -32,6 +32,12 @@ namespace p3ppc.kotonecutscenes.Configuration
         [DefaultValue(true)]
         public bool OP1 { get; set; } = true;
 
+        [Category("Opening Movie")]
+        [DisplayName("Makes Moonlight Daydream play first")]
+        [Description("Enables Moonlight Daydream (original OP for the Kotone\nCutscenes Project), to play first..")]
+        [DefaultValue(true)]
+        public bool SWAP { get; set; } = true;
+
         [Category("Title Screen")]
         [DisplayName("FEMC Title Screen")]
         [Description("Makes the title screen FEMC themed with pink assets instead\nof the default colors, as well as adding new Kotone art.")]

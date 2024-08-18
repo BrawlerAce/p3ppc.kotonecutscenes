@@ -131,7 +131,7 @@ namespace p3ppc.kotonecutscenes
                     memory.SafeWrite((nuint)address, new byte[] { 0x90, 0x90 });
                 });
 
-                Utils.SigScan("0F BA F0 07 ?? ?? ?? ?? ?? ?? ??", "Pink Loading Card + Title Config", 4,
+                Utils.SigScan("0F BA F0 07 ?? ?? ?? ?? ?? ?? ??", "Pink Loading Card + Title Config", 5,
                 address =>
                 {
                     memory.SafeWrite((nuint)(address + 2), new byte[] { 0xE8 });
@@ -230,15 +230,39 @@ namespace p3ppc.kotonecutscenes
                 string currentMovie;
                 if (_introCount == 0)
                 {
-                    currentMovie = "sound/usm/P3OPMV_P3P.usm";
+                    if (_configuration.OP1 == true)
+                    {
+                        currentMovie = "sound/usm/P3OPMV_P3PC.usm";
+                    }
+                    else
+                    {
+                        currentMovie = "sound/usm/P3OPMV_P3P.usm";
+                    }
+                        
                 }
                 else if (_introCount == 1)
                 {
-                    currentMovie = "sound/usm/P3OPMV_P3PB.usm";
+                    if (_configuration.OP1 == true)
+                    {
+                        currentMovie = "sound/usm/P3OPMV_P3P.usm";
+                    }
+                    else
+                    {
+                        currentMovie = "sound/usm/P3OPMV_P3PB.usm";
+                    }
+                    
                 }
                 else
                 {
-                    currentMovie = "sound/usm/P3OPMV_P3PC.usm";
+                    if (_configuration.OP1 == true)
+                    {
+                        currentMovie = "sound/usm/P3OPMV_P3PB.usm";
+                    }
+                    else
+                    {
+                        currentMovie = "sound/usm/P3OPMV_P3PC.usm";
+                    }
+                
                 }
 
                 var taskHandle = _playMovie(introStruct, currentMovie, _movieThing1, 0, 0, *_movieThing2);
