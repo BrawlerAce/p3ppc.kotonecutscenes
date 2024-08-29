@@ -24,7 +24,7 @@ namespace p3ppc.kotonecutscenes.Configuration
             - Localizable
 
             The `DefaultValue` attribute is used as part of the `Reset` button in Reloaded-Launcher.
-        */;
+        */
 
         [Category("Title Screen")]
         [DisplayName("FEMC Title Screen")]
