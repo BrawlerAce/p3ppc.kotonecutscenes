@@ -110,11 +110,6 @@ namespace p3ppc.kotonecutscenes
 
             // Opening 1
 
-            if (_configuration.OP1 == true)
-            {
-                criFsApi.AddProbingPath(Path.Combine(modDir, "Config", "MoonlightDaydream"));
-            }
-
             // Pink Title Screen
 
             if (_configuration.PinkTitleScreen == true)
