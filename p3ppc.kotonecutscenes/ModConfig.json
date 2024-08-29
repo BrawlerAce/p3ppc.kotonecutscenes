@@ -179,17 +179,18 @@
     }
   },
   "IsUniversalMod": false,
-  "ModDependencies": [
-    "BGME.Framework",
-    "BGME.Framework.API",
-    "crifs.v2.hook",
-    "p3ppc.moviePlayer",
-    "p5rpc.modloader",
-    "Reloaded.Memory.SigScan.ReloadedII",
-    "reloaded.sharedlib.hooks",
-    "reloaded.universal.fileemulationframework.bf",
-    "reloaded.universal.fileemulationframework.pak"
-  ],
+    "ModDependencies": [
+        "BGME.Framework",
+        "BGME.Framework.API",
+        "crifs.v2.hook",
+        "p3ppc.moviePlayer",
+        "p5rpc.modloader",
+        "Reloaded.Memory.SigScan.ReloadedII",
+        "reloaded.sharedlib.hooks",
+        "reloaded.universal.fileemulationframework.bf",
+        "reloaded.universal.fileemulationframework.pak",
+        "p3ppc.multiplemovies"
+    ],
   "OptionalDependencies": [],
   "SupportedAppId": [
     "p3p.exe"

@@ -24,13 +24,7 @@ namespace p3ppc.kotonecutscenes.Configuration
             - Localizable
 
             The `DefaultValue` attribute is used as part of the `Reset` button in Reloaded-Launcher.
-        */
-
-        [Category("Opening Movie")]
-        [DisplayName("Moonlight Daydream over Soul Phrase")]
-        [Description("Enables Moonlight Daydream (original OP for the Kotone\nCutscenes Project), replacing Soul Phrase.")]
-        [DefaultValue(true)]
-        public bool OP1 { get; set; } = true;
+        */;
 
         [Category("Title Screen")]
         [DisplayName("FEMC Title Screen")]
