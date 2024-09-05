@@ -239,7 +239,7 @@ void SCR_e338_303_hook()
 	
 	// Shinji death check
 	//   Shinji alive
-	if ( BIT_CHK( 2098 ) && BIT_CHK( 2106 ) )
+	if ( BIT_CHK( 2098 ) || BIT_CHK( 2106 ) )
 	{
 		CUSTOM_MOVIE_PLAY( 81 );
 	}
