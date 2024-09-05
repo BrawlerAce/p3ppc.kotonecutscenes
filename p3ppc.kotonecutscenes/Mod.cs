@@ -78,7 +78,7 @@ namespace p3ppc.kotonecutscenes
             // TODO: Implement some mod logic
 
             Utils.Initialise(_logger, _configuration, _modLoader);
-            
+
             _titleScreen = new TitleScreen(_hooks, _configuration);
 
             var criFsController = _modLoader.GetController<ICriFsRedirectorApi>();
@@ -108,6 +108,13 @@ namespace p3ppc.kotonecutscenes
 
             Memory memory = Memory.Instance;
 
+            // Opening 1
+
+            if (_configuration.OP1 == true)
+            {
+                criFsApi.AddProbingPath(Path.Combine(modDir, "Config", "MoonlightDaydream"));
+            }
+
             // Pink Title Screen
 
             if (_configuration.PinkTitleScreen == true)
@@ -120,7 +127,8 @@ namespace p3ppc.kotonecutscenes
                     memory.SafeWrite((nuint)address, new byte[] { 0x90, 0x90 });
                 });
 
-                Utils.SigScan("0F BA F0 07 ?? ?? ?? ?? ?? ?? ??", "Pink Loading Card + Title Config", 4, address =>
+                Utils.SigScan("0F BA F0 07 ?? ?? ?? ?? ?? ?? ??", "Pink Loading Card + Title Config", 4,
+                address =>
                 {
                     memory.SafeWrite((nuint)(address + 2), new byte[] { 0xE8 });
                 });

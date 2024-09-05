@@ -26,12 +26,18 @@ namespace p3ppc.kotonecutscenes.Configuration
             The `DefaultValue` attribute is used as part of the `Reset` button in Reloaded-Launcher.
         */
 
+        [Category("Opening Movie")]
+        [DisplayName("Moonlight Daydream over Soul Phrase")]
+        [Description("Enables Moonlight Daydream (original OP for the Kotone\nCutscenes Project), replacing Soul Phrase.")]
+        [DefaultValue(true)]
+        public bool OP1 { get; set; } = true;
+
         [Category("Title Screen")]
         [DisplayName("FEMC Title Screen")]
         [Description("Makes the title screen FEMC themed with pink assets instead\nof the default colors, as well as adding new Kotone art.")]
         [DefaultValue(true)]
         public bool PinkTitleScreen { get; set; } = true;
-        
+
         [Category("Credits Music")]
         [DisplayName("Good Ending Theme")]
         [Description("Select music to play during the good ending.\n\nOriginal: Memories of You\nReload: Memories of You -Reload-\nReloadInstrumental: Memories of You -Reload Instrumental-\nMovie: Memories of You (Remix) (Persona 3 the Movie)\nOrchestra: Memories of You ~Orchestra ver.~")]
