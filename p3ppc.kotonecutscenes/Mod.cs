@@ -15,6 +15,7 @@ using Reloaded.Memory.Interfaces;
 using Reloaded.Memory.SigScan.ReloadedII.Interfaces;
 using static p3ppc.kotonecutscenes.Utils;
 using System;
+using Reloaded.Mod.Interfaces.Internal;
 
 namespace p3ppc.kotonecutscenes
 {
@@ -195,7 +196,27 @@ namespace p3ppc.kotonecutscenes
                 _BfEmulator.AddDirectory(Path.Combine(modDir, "Config", "MusicConfig", "BadEnding", "Mistic"));
             }
 
-            // FEMC Title Screen, etc assets
+            // Check for p3ppc.expandedsubmenu. Add scheduler_04.bf if ESM is not detected! 
+            var mods = _modLoader.GetActiveMods();
+            if (mods.Any(x => x.Generic.ModId == "p3ppc.expandedsubmenu"))
+            {
+                Utils.Log("Found \"Expanded Sub Menu\", enabling compatibility mode.");
+            }
+
+            else
+            {
+                Utils.Log("\"Expanded Sub Menu\" not detected. (this is not an error!)");
+                _BfEmulator.AddDirectory(Path.Combine(modDir, "Config", "scheduler_04"));
+                _modLoader.ModLoaded += ModLoaded;
+            }
+        }
+
+        private void ModLoaded(IModV1 mod, IModConfigV1 modConfig)
+        {
+            if (modConfig.ModId == "p3ppc.kotonecutscenes")
+            {
+                _logger.WriteLine("Found \"Kotone Cutscenes Project\", enabling compatibility mode.");
+            }
         }
 
         #region Standard Overrides
